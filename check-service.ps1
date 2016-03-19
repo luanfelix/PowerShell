@@ -1,5 +1,5 @@
 ﻿### CENTRALIT | EBSERH ####
-### Contato: luan.coelho@centralit.com.br
+
 
 
 $StatusService = Get-Service -Name AdobeARMservice
