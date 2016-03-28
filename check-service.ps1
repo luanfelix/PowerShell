@@ -1,8 +1,10 @@
 
-﻿# Este codigo tem a finalidade de buscar um serviço pelo nome no windows 
-﻿# e verificar se esta sendo executado.
+﻿<# 
+﻿Este codigo tem a finalidade de buscar um serviço pelo nome no windows 
+﻿e verificar se esta sendo executado.
+﻿#>
 ﻿
-$StatusService = Get-Service -Name name service
+    $StatusService = Get-Service -Name name service
 
     #check se o serviço esta ativo
     if ($StatusService.Status -ne "Running"){
