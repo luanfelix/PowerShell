@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard -Zabbix</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style>
+
+html{
+  height:100%;
+  width:100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: black; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(0deg, black, #3a3a3a) fixed; /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(0deg, black, #3a3a3a) fixed; /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(0deg, black, #3a3a3a) fixed; /* For Firefox 3.6 to 15 */
+  background: linear-gradient(0deg, black, #3a3a3a) fixed; /* Standard syntax (must be last) */
+}
+
+body{
+  font-family: "Segoe UI",Arial,sans-serif;
+}
+
+.conteiner1{
+  margin: 0px 50px 0px 50px;
+  border: 5px;
+  border-bottom-color: #0db915;
+  border-bottom-style: solid;
+  height: 120px;
+  width: auto;
+}
+.text1 h1{
+  font-size: 40px;
+}
+.text1{
+  width: 50px;
+  padding: 50px 9px 0px 8px;
+
+}
+
+.text2{
+  width: 50px;
+  padding: 50px 9px 0px 8px;
+  float: right;
+  background-color: blue;
+}
+
+.text2 h1{
+  font-size: 40px;
+}
+
+/*th{
+  width: 100%;
+}*/
+
+.title1 h1{
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 60px;
+  text-align: left;
+  margin-top: 35px;
+  margin-bottom: 0px;
+}
+
+.title2 h1{
+  color: #0db915;
+  font-size: 70px;
+  text-align: right;
+  margin-top: 35px;
+  margin-bottom: 0px;
+}
+.toptable{
+  height: 120px;
+  width: 100%;
+}
+
+.boxconteiner{
+  position: absolute;
+  width: 100%;
+}
+
+.box1 {
+  float: left;
+  margin: 20px 0px 0px -35px;
+  border-left-width: 125px;
+  border-left-style: solid;
+  border-color: #BF360C;
+  background-color: #fda524;
+  width: 380px;
+  height: 105px;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.box2 {
+  float: left;
+  margin: 20px 0px 0px 43px;
+  border-left-width: 125px;
+  border-left-style: solid;
+  border-color: #064475;
+  background-color: #2196F3;
+  width: 427px;
+  height: 129px;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.box3 {
+  float: left;
+  margin: 20px 0px 0px 41px;
+  border-left-width: 125px;
+  border-left-style: solid;
+  border-color: #B71C1C;
+  background-color: #EF5350;
+  width: 390px;
+  height: 115px;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.box1text1{
+  float: left;
+  width: 219px;
+  height: 33px;
+  padding-left: 26px;
+  padding-top: 13px;
+  margin: -43px 0px 0px -50px;
+  border-bottom: 6px solid #bf360c;
+  color: white;
+}
+
+.box1text2{
+  color: white;
+  float: left;
+  width: 195px;
+  height: 48px;
+  padding-left: 0px;
+  margin: 16px 0px 0px -40px;
+}
+
+.box1img{
+  position: absolute;
+  margin: -42px 0px 0px -159px;
+}
+
+.box1img img{
+  height: 90px;
+}
+
+.box2text1{
+  float: left;
+  width: 257px;
+  height: 28px;
+  padding-left: 35px;
+  padding-top: 16px;
+  margin: -51px 0px 0px -50px;
+  border-bottom: 6px solid #064475;
+  color: white;
+}
+
+.box2text2{
+  color: white;
+  float: left;
+  width: 285px;
+  height: 28px;
+  padding-left: 6px;
+  margin: 11px 0px 0px -50px;
+  border-bottom: 6px solid #064475;
+}
+
+.box2text3{
+  color: white;
+  float: left;
+  width: 195px;
+  height: 0px;
+  padding-left: 81px;
+  margin: 9px 0px 0px -50px;
+}
+
+.box2img{
+  position: absolute;
+  margin: -30px 0px 0px -159px;
+}
+
+.box2img img{
+  height: 90px;
+}
+
+.box3text1{
+  color: white;
+  float: left;
+  width: 195px;
+  height: 0px;
+  padding-left: 6px;
+  margin: 35px 0px 0px 35px;
+}
+
+.box3img{
+  position: absolute;
+  margin: -36px 0px 0px -159px;
+}
+
+.box3img img{
+  height: 90px;
+}
+
+.soconteiner{
+  padding: 161px 0px 0px 857px;
+  position: absolute;
+}
+
+.soconteiner table{
+  border-collapse: collapse;
+  width: 390px;
+  border: 3px solid white;
+}
+
+.soconteiner th{
+  height: 40px;
+  text-align: center;
+  background-color: #6d6d6d;
+  font-size: 9px;
+  color: white;
+  font-size: 15px;
+}
+
+.soconteiner td{
+  width: 55px;
+  height: 30px;
+  padding-left: 10px;
+}
+.soconteiner tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+.soconteiner tr:nth-child(odd){
+  background-color: #c5c5c5;
+  color: black;
+
+}
+
+.mapconteiner{
+  height: 623px;
+  width: 806px;
+  margin: 180px 0px 20px -15px;
+  border: 3px solid white;
+}
+
+.mapconteiner img{
+  padding: 23px 0px 0px 51px;
+  height: 595px;
+}
+
+.tbgeral{
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+#tbgeraltd1{
+  background-color: #3fa53f;
+  color: white;
+}
+
+#tbgeraltd2{
+  text-align: center;
+  color: white;
+  background-color: green;
+
+}
+
+#tbgeraltr{
+  border: 3px solid white;
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="conteiner1">
+  <table class="toptable">
+    <tr>
+      <th class="title1"><h1>DOMÍNIO</h1></th>
+      <th class="title2"><h1>EBSERH</h1></th>
+    </tr>
+
+
+  </table>
+
+<div class="boxconteiner">
+
+<div class="box1">
+  <div class="box1img"><img src="https://goo.gl/o3Iv85"></div>
+  <div class="box1text1">CONTAS ATIVAS</div>
+  <div class="box1text2">CONTAS INATIVAS</div>
+</div>
+
+<div class="box2">
+<div class="box2img"><img src="https://goo.gl/zn76o9"></div>
+<div class="box2text1">CONTAS DE E-MAIL</div>
+<div class="box2text2">7 MESES SEM ACESSO</div>
+<div class="box2text3">SEM ACESSO</div>
+</div>
+
+<div class="box3">
+  <div class="box3img"><img src="https://goo.gl/Sqq4ef"></div>
+  <div class="box3text1">ESTAÇÕES</div>
+</div>
+
+</div>
+
+<div class="soconteiner">
+<table class="tbgeral">
+  <tr>
+    <td id="tbgeraltd1">CONTROLADORES DE DOMÍNIO</td>
+    <td id="tbgeraltd2">59</td>
+  </tr>
+  <tr id="tbgeraltr">
+    <td id="tbgeraltd1">POLÍTICAS DE GRUPO (GPO)</td>
+    <td id="tbgeraltd2">000</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>SISTEMA OPERACIONAL</th>
+    <th>QTD.</th>
+  </tr>
+  <tr>
+    <td>Windows 10</td>
+    <td></th>
+  </tr>
+  <tr>
+    <td>Windows 8.1</td>
+    <td></th>
+  </tr>
+  <tr>
+    <td>Windows 8</td>
+    <td></th>
+  </tr>
+  <tr>
+    <td>Windows 7</td>
+    <td></th>
+  </tr>
+  <tr>
+    <td>Windows XP</td>
+    <td></td>
+  </tr>
+
+
+</table>
+</div>
+
+<div class="mapconteiner">
+  <img src="https://goo.gl/tQNb1z"></div>
+</div>
+
+
+
+</body>
+</html>
