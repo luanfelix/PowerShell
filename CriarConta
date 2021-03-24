@@ -1,0 +1,57 @@
+ #DEFINIR O SAMACCOUNTNAME
+#Clear-Variable ArraySamAcc
+
+$FirstName = "Luan"
+$Surname = "Apenas Teste de Script Conta"
+
+ $excl = @('de', 'da', 'do', 'dos', 'das', 'filho', 'junior', 'neto', 'primeiro', 'segundo', 'terceiro', 'sobrinho', 'filha', 'neta', 'sobrinha','a','e','i','o','u','di','du')
+ #$FirstName = ("$($TextBoxName.Text)").Trim()
+ #$FirstNameArray = $FirstName.Split(' ').ToLower()
+ #$Surname = ("$($TextBoxSname.Text)").Trim()
+ $SurnameArray = $Surname.Split(' ').ToLower()
+ $del = $excl | Where-Object{$SurnameArray -eq $_}
+ $i = 0
+
+ If ($del.Count -gt 0) {
+     ForEach ($name in $del) {
+         $SurnameArray = $SurnameArray -ne $name
+         $i++   
+     }
+ }
+ 
+ # CONDIÇÕES PARA CRIAR O LOGIN
+
+ # Criando um array para armazenar todos os sobrenomes
+ $ArraySamAcc = @()
+
+ # Criando contador da quantidade de sobrenomes
+ $count = $SurnameArray.Split().Count
+ 
+ # Criando condiçoes com o nome + sobrenomes
+ 1..$count | ForEach-Object{
+ $ArraySamAcc += if($SurnameArray.Split().Count -ge 1){
+ ($FirstName.Split(" ")[0] + '.' + $SurnameArray.Split(" ")["-$_"]).ToLower()
+ }
+ }
+
+ # Criando condições com o primeiro sobrenome + demais sobrenomes
+ 1..$count | ForEach-Object{
+    $SelectSurnameArray = $SurnameArray.Split(" ")["-$_"]
+     if(($count -gt 1) -and ($SelectSurnameArray -notmatch $Surname.Split(" ")[0]) ){
+        $ArraySamAcc += ($Surname.Split(" ")[0] + '.' + $SurnameArray.Split(" ")["-$_"]).ToLower()
+ }
+ }
+
+ # Não exibir erros na tela
+ $ErrorActionPreference = 'SilentlyContinue'
+
+ # Testando todas as condições para selecionar o login que não existe
+ foreach ($SelectArraySamAccc in $ArraySamAcc) {
+
+ if( [bool] (Get-ADUser -Filter { SamAccountName -eq $SelectArraySamAccc }-Server pvwanx001.mtur.gov.br )  ){
+ continue
+ }else{
+ $SamAccountName = $SelectArraySamAccc
+ break}
+ continue
+ }
