@@ -1,4 +1,4 @@
- #DEFINIR O SAMACCOUNTNAME
+      #DEFINIR O SAMACCOUNTNAME
 #Clear-Variable ArraySamAcc
 
 $FirstName = "Luan"
@@ -19,7 +19,7 @@ $Surname = "Apenas Teste de Script Conta"
      }
  }
  
- # CONDIÇÕES PARA CRIAR O LOGIN
+       # CONDIÇÕES PARA CRIAR O LOGIN
 
  # Criando um array para armazenar todos os sobrenomes
  $ArraySamAcc = @()
@@ -48,7 +48,7 @@ $Surname = "Apenas Teste de Script Conta"
  # Testando todas as condições para selecionar o login que não existe
  foreach ($SelectArraySamAccc in $ArraySamAcc) {
 
- if( [bool] (Get-ADUser -Filter { SamAccountName -eq $SelectArraySamAccc }-Server pvwanx001.mtur.gov.br )  ){
+ if( [bool] (Get-ADUser -Filter { SamAccountName -eq $SelectArraySamAccc }-Server SERVIDOR )  ){
  continue
  }else{
  $SamAccountName = $SelectArraySamAccc
